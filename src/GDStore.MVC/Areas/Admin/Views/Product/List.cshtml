@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using GDStore.Api
+@model IEnumerable<GDStore.ViewModel.Products.ProductVm>
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+            swal("@Html.Raw(TempData["message"].ToString())", "", "success");
+    </script>
+}
+<h1 class="title-content">Danh sách sản phẩm</h1>
+<div class="row mt-3 mb-3">
+    <div class="col-md-2">
+        <a asp-action="Add" asp-controller="Product" asp-area="Admin" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm sản phẩm</a>
+    </div>
+    <div class="col-md-4 mb-2 p-0">
+        <form action="" method="post">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-1 small"
+                       placeholder="Nhập tên sản phẩm... " aria-label="Search"
+                       aria-describedby="basic-addon2" required>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered" id="listProduct">
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id=""> Chọn tất cả</th>
+                <th>Ảnh sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td><img src="@TempData["BackendUrl"]/user-content/@item.ThumbnailImage.First().Url" style="width:50px" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Product" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                        <a asp-action="Delete" asp-controller="Product" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#listProduct').DataTable({
+                "pageLength": 3,
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Xem _MENU_ mục",
+                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sPrevious": "Trước",
+                        "sNext": "Tiếp",
+                        "sLast": "Cuối"
+                    }
+                }
+            });
+        });
+    </script>
+}

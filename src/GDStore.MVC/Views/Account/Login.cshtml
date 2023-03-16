@@ -1,0 +1,62 @@
+﻿@model GDStore.ViewModel.Users.LoginRequest
+@{
+    Layout = "_LayoutAccount";
+    ViewData["Title"] = "Đăng nhập";
+}
+<div class="container">
+    <div class="panel-login">
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <div class="col-left">
+                    <img src="/img/ecommerce-bg.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 p-0">
+                <div class="col-right">
+                    <div class="form-login">
+                        <h5 class="text-center">Đăng nhập</h5>
+                        <form asp-action="LoginHandle" asp-controller="Account" asp-route-returnUrl="@ViewBag.ReturnUrl" method="POST">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" asp-for="Email" placeholder="Nhập Email"
+                                       class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu</label>
+                                <input type="password" asp-for="Password" placeholder="Mật khẩu từ 6 đến 15 ký tự"
+                                       class="form-control">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="rememberme">
+                                    <input type="checkbox" name="" id="rememberme"> Nhớ mật
+                                    khẩu
+                                </label>
+                                <a asp-action="ForgotPassword" asp-controller="Account" class="float-right">Quên mật khẩu?</a>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Đăng nhập</button>
+                            </div>
+                            @Html.ValidationMessage("Error", new { @class="text-center text-danger"})
+                            <hr>
+                            <div class="external-login d-flex flex-column">
+                                <button class="btn btn-primary mb-2">
+                                    <i class="fab fa-facebook-f mr-2"></i>Đăng nhập với
+                                    Facebook
+                                </button>
+                                <button class="btn btn-danger float-right">
+                                    <i class="fab fa-google-plus-g mr-2"></i>Đăng nhập với Google
+                                </button>
+                            </div>
+                            <div class="text-center mt-3"><a asp-action="Register" asp-controller="Account">Đăng ký ngay</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

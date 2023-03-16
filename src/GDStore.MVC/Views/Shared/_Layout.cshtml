@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:100,300,400,500,700|Volkhov:400i">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="~/vendor/SweetAlert/css/sweetalert.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="inner-header row">
+                <a href="/" class="col-md-2 p-0">
+                    <div class="brand d-flex">
+                        <div class="brand-logo">
+                            <img class="" src="~/img/logo-png.png" alt="">
+                        </div>
+                        <h1 class="brand-name mt-2" style="font-family: serif;">Store</h1>
+                    </div>
+                </a>
+                <nav class="navbar navbar-expand-sm col-md-4 p-0">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Category/Index">Nam</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Category/Index">Nữ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Category/Index">Giảm giá</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Category/Index">Khuyến mãi</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="search-box col-md-3 mt-3">
+                    <form action="#" method="POST">
+                        <input type="text" class="" placeholder="Nhập tên sản phẩm...">
+                        <button class="btn-search" title="Tìm kiếm"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="cart col-md-1">
+                    <a href="/Cart/Index">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <label class="badge badge-warning lbl-cartQty">0</label>
+                    </a>
+                </div>
+                <div class="account col-md-2">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-user fa-lg"></i>
+                        @if (!String.IsNullOrEmpty(User.Identity.Name))
+                        {
+                            <a href="/Account/ManagerAccount" class="ml-1">@User.Identity.Name</a>
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="ml-1">Tài khoản</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <section class="stores">
+        <div class="container">
+            <div class="title">Hệ thống cửa hàng</div>
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.0799875628227!2d105.69237121482288!3d18.66040628732768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139cdde5e40a551%3A0x543b433120d5699b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBWaW5o!5e0!3m2!1svi!2s!4v1603002060645!5m2!1svi!2s"
+                                width="540" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-3">
+                    <div class="store-item">
+                        <p class="icon-map"><i class="fas fa-map-marker-alt fa-lg"></i></p>
+                        <p class="map-content">
+                            <span class="mb-1 ml-1">
+                                <span>ĐỊA CHỈ: </span><span>
+                                    Số 68 Hai Bà Trưng,
+                                    Phường Cửa Nam, Hoàn Kiếm, Hà Nội
+                                </span><br><span>SĐT: 0243.936.5268</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="store-item">
+                        <p class="icon-map"><i class="fas fa-map-marker-alt fa-lg"></i></p>
+                        <p class="map-content">
+                            <span class="mb-1 ml-1">
+                                <span>ĐỊA CHỈ: </span><span>
+                                    ĐỊA CHỈ:
+                                </span><span> 316 Nguyễn Văn Cừ - Tp Vinh- Nghệ An</span><br><span>
+                                    SĐT:
+                                    02383.858.567
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="store-item">
+                        <p class="icon-map"><i class="fas fa-map-marker-alt fa-lg"></i></p>
+                        <p class="map-content">
+                            <span class="mb-1 ml-1">
+                                <span>ĐỊA CHỈ: </span><span>
+                                    69 Trần Hưng Đạo,TT
+                                    Liên Nghĩa, H.Đức Trọng, T.Lâm Đồng
+                                </span><br><span>SĐT: 02633.645.939</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="store-item">
+                        <p class="icon-map"><i class="fas fa-map-marker-alt fa-lg"></i></p>
+                        <p class="map-content">
+                            <span class="mb-1 ml-1">
+                                <span>ĐỊA CHỈ: </span><span>
+                                    Số 47, Đường Nguyễn
+                                    Huệ, P.Bến Nghé, Quận 1, TP.
+                                    HCM
+                                </span><br><span>SĐT: 0282.200.7476</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo-footer text-center">
+                        <a href="/"><img src="/img/logo-png.png" alt="" width="100px"></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="about">
+                        <h4>Về GDStore</h4>
+                        <ul>
+                            <li><a href="/Home/About">Về GDStore</a></li>
+                            <li><a href="">Câu chuyện GDStore</a></li>
+                            <li><a href="">Bước tiến phát triển</a></li>
+                            <li><a href="">Hoạt động</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="policy">
+                        <h4><a href="/Home/Policy">Chính sách</a></h4>
+                        <ul>
+                            <li><a href="">Chính sách đổi trả</a></li>
+                            <li><a href="">Chính sách bảo hành</a></li>
+                            <li><a href="">Chính sách khách hàng thân thiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="contact">
+                        <h4><a href="/Home/Contact">Liên hệ</a></h4>
+                        <p><b>SĐT:</b> (012) 34 567 89 </p>
+                        <p>
+                            <b>Email : </b>Liên hệ các vấn đề về đặt hàng online : tuvan_online@gdstore.com.vn <br>
+                            <b>
+                                Email :
+                            </b>Liên hệ các vấn đề về kênh cửa hàng, đại lý (offline) :
+                            chamsockhachhang@gdstore.com.vn<br>
+                            <b>Hotline : 19002126 </b>( cước phí: 3000đ/phút )<br>
+                            Thời gian tư vấn: Từ 07h30 đến 12h15, 13h15 đến 21h30 các ngày trong tuần ( Trừ ngày Lễ,
+                            Tết)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button onclick="scrollToTop()" id="btnScroll" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/vendor/SweetAlert/js/sweetalert.js"></script>
+    <script src="~/js/app.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

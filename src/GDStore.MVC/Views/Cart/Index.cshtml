@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="checkout">
+    <div class="container">
+        <div class="your-cart">
+            <div class="title">Giỏ hàng</div>
+            <div class="row mt-4 mb-2">
+                <p><a href="/Home/Index">❮ Mua thêm sản phẩm khác</a></p>
+            </div>
+            <div class="list-cart">
+                
+                
+            </div>
+            <div class="clearfix">
+                <p class="float-right"><strong class="total"></strong></p>
+            </div>
+        </div>
+        <form action="#" method="POST" id="frm-info-order">
+            <h6>Nhập thông tin đặt mua</h6>
+            <div class="row mt-4" style="height: 275px;">
+                <div class="rg-checkout col-md-8">
+                    <div class="form-checkout">
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên" class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="email" placeholder="Email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Số điện thoại" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Địa chỉ (VD: số nhà A, đường B, khối C)" class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select name="" id="ddlProvince" class="form-control">
+                                        <option value="0">--Tỉnh/Thành phố--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select name="" id="ddlDistrict" class="form-control">
+                                        <option value="0">--Quận/Huyện--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select name="" id="ddlWards" class="form-control">
+                                        <option value="0">--Phường/Xã--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="">
+                        <img src="/img/shipper.png" alt="" class="w-100">
+                    </div>
+                    <label for="delegate" class="mt-2">
+                        <input type="checkbox" name="" id="delegate">
+                        Gọi người khác nhận (nếu có)
+                    </label>
+                    <div class="customer-delegate" style="display: none;">
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Số điện thoại" class="form-control">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Thanh toán ngay</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/controllers/cartController.js"></script>
+}

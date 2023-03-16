@@ -1,0 +1,67 @@
+﻿@model GDStore.ViewModel.Users.RegisterRequest
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+            swal("@Html.Raw(TempData["message"].ToString())", "", "success");
+    </script>
+}
+<h1 class="title-content">Thêm người dùng</h1>
+
+<div class="mt-5">
+    <form asp-action="Add" asp-controller="User" asp-area="Admin" method="post">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="control-label">Họ</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="control-label">Tên</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="control-label">Số điện thoại</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label class="control-label">Tên đăng nhập</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label class="control-label">Mật khẩu</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label class="control-label">Nhập lại mật khẩu</label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Lưu lại" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+}

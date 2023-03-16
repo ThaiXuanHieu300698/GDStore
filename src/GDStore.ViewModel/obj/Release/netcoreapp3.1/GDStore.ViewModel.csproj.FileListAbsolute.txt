@@ -1,0 +1,12 @@
+F:\Web\GDStore\src\GDStore.ViewModel\bin\Release\netcoreapp3.1\GDStore.ViewModel.deps.json
+F:\Web\GDStore\src\GDStore.ViewModel\bin\Release\netcoreapp3.1\GDStore.ViewModel.dll
+F:\Web\GDStore\src\GDStore.ViewModel\bin\Release\netcoreapp3.1\GDStore.ViewModel.pdb
+F:\Web\GDStore\src\GDStore.ViewModel\bin\Release\netcoreapp3.1\GDStore.Domain.dll
+F:\Web\GDStore\src\GDStore.ViewModel\bin\Release\netcoreapp3.1\GDStore.Domain.pdb
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.csprojAssemblyReference.cache
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.AssemblyInfoInputs.cache
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.AssemblyInfo.cs
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.csproj.CoreCompileInputs.cache
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.csproj.CopyComplete
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.dll
+F:\Web\GDStore\src\GDStore.ViewModel\obj\Release\netcoreapp3.1\GDStore.ViewModel.pdb

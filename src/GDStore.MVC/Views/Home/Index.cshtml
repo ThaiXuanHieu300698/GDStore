@@ -1,0 +1,104 @@
+﻿@using GDStore.Application.Common
+@{
+    ViewData["Title"] = "GDStore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Categories = (List<GDStore.ViewModel.Categories.CategoryVm>)ViewBag.Categories;
+}
+@model IEnumerable<GDStore.ViewModel.Products.ProductVm>
+<section class="slide-banner">
+    <div id="slide" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#slide" data-slide-to="0" class="active"></li>
+            <li data-target="#slide" data-slide-to="1"></li>
+            <li data-target="#slide" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href=""><img src="~/img/banner-1.webp" alt="" width="1100" height="500"></a>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="~/img/banner-2.webp" alt="" width="1100" height="500"></a>
+            </div>
+            <div class="carousel-item">
+                <a href=""><img src="~/img/banner-3.webp" alt="" width="1100" height="500"></a>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#slide" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slide" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</section>
+@foreach (var i in Categories.Take(2))
+{
+    <section class="products products-male">
+        <div class="container">
+            <div class="title">@i.Name</div>
+            <div class="row mt-2">
+                @foreach (var item in Model.Where(p => p.CategoryId.Contains(i.Id)))
+                {
+                    <div class="col-md-3 col-3">
+                        <div class="product">
+                            <label class="badge badge-warning">-50%</label><br>
+                            <label class="badge badge-danger">Khuyến mãi</label>
+                            <a href="/san-pham/@StringHelper.VNDecode(item.Name)-@item.Id">
+                                <img class="thumbnail-img" src="@TempData["BackendUrl"]/user-content/@item.ThumbnailImage.First().Url" alt="">
+                            </a>
+                            <hr>
+                            <h1 class="product-name"><a href="/san-pham/@StringHelper.VNDecode(item.Name)-@item.Id">@item.Name</a></h1>
+                            <div>
+                                <span class="price"><strong>@item.Price₫</strong></span>
+                                <del class="original-price float-right">@item.OriginalPrice₫</del>
+                            </div>
+                            <button class="btn btn-success btn-addToCart w-100 mt-3" data-id="@item.Id">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="" class="btn-see-more">Xem thêm</a>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="brands">
+    <div class="container">
+        <div class="title">Thương hiệu</div>
+        <div class="row mt-2">
+            <div class="col-md-3 col-3">
+                <div class="brand">
+                    <a href=""><img src="/img/brand/adidas.png" class="w-100" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="brand">
+                    <a href=""><img src="/img/brand/nike.png" class="w-100" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="brand">
+                    <a href=""><img src="/img/brand/puma.png" class="w-100" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="brand">
+                    <a href=""><img src="/img/brand/bitis.png" class="w-100" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="" class="btn-see-more">Xem thêm</a>
+        </div>
+    </div>
+</section>

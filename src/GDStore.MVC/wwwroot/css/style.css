@@ -1,0 +1,433 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel-login,
+.panel-register,
+.panel-forgot-password {
+    margin-top: 120px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.panel-register {
+    margin-top: 30px;
+}
+
+    .panel-login img,
+    .panel-register img {
+        width: 100%;
+        margin-top: 104px;
+        object-fit: cover;
+    }
+
+.col-left,
+.col-main,
+.col-right {
+    padding: 0px 20px;
+    background-color: white;
+}
+
+/*index*/
+.header {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    z-index: 100;
+    border-bottom: 1px solid #e9ecef;
+}
+
+    .header a {
+        text-decoration: none;
+        color: black;
+    }
+
+.brand-logo {
+    width: 40px;
+}
+
+    .brand-logo img {
+        width: 100%;
+    }
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.search-box input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #28a745;
+    padding-left: 10px;
+}
+
+.search-box .btn-search {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.cart,
+.account {
+    padding: 20px 15px 0px 15px;
+}
+
+    .cart i,
+    .account i {
+        color: #28a745;
+        cursor: pointer;
+    }
+
+.nav-item a {
+    text-transform: uppercase;
+}
+
+.nav-item:hover {
+    background-color: #f7f7f7;
+}
+
+.slide-banner, .pt-65px {
+    padding-top: 65px;
+}
+
+    .slide-banner img {
+        width: 100%;
+        height: 100%;
+    }
+
+#btnScroll {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.products-male,
+.products-female,
+.products-related,
+.stores,
+.comment,
+.brands {
+    padding: 20px 0px;
+}
+
+    .products-male .title,
+    .products-female .title,
+    .products-related .title,
+    .stores .title,
+    .comment .title,
+    .checkout .title,
+    .brands .title {
+        background-color: #212121;
+        text-align: center;
+        width: 200px;
+        color: white;
+        margin: 20px auto;
+        padding: 5px 0px;
+    }
+
+.product {
+    position: relative;
+    padding: 15px;
+    height: 460px;
+}
+
+    .product:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    }
+
+    .product .product-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 16px;
+    }
+
+    .product img {
+        width: 100%;
+    }
+
+.price {
+    color: red;
+}
+
+.product h1 a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.product .btn-addToCart {
+    display: none;
+}
+
+.btn-see-more:hover {
+    text-decoration: none;
+}
+
+.icon-map,
+.map-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer {
+    background: #212121;
+    padding: 20px;
+}
+
+    .footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer h4 {
+        color: white;
+    }
+
+    .footer p,
+    .footer a {
+        margin: 0;
+        color: #989898;
+    }
+
+    .footer a {
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: white;
+        }
+
+.filter a {
+    text-decoration: none;
+    color: #212121;
+}
+
+    .filter a:hover {
+        color: #007bff;
+    }
+
+.filter-categories {
+    padding-top: 15px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.breadcrumb-rg {
+    background: #e9ecef;
+    padding: 65px 0px 0px 0px;
+}
+
+.breadcrumb {
+    border-radius: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+.breadcrumb-item a {
+    color: #878087;
+}
+
+.img-item {
+    width: 65px;
+    height: 65px;
+    margin: 0px 15px;
+}
+
+    .img-item img {
+        width: 100%;
+        cursor: pointer;
+    }
+
+.is-clicked {
+    border: 1px solid black;
+}
+
+.info-product .product-name {
+    font-size: 18px;
+    color: #212121;
+}
+
+.list-size .size-item {
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.size-selected {
+    background: black;
+    color: white;
+}
+
+.rate i {
+    color: rgb(255, 193, 32);
+    cursor: pointer;
+}
+
+.product-detail .btn-buy,
+.product-detail .btn-addToCart {
+    background: #f72b3f;
+    color: white;
+    width: 50%;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.comment-box {
+    border: none;
+    outline: none;
+}
+
+.btn-ChooseImg {
+    cursor: pointer;
+}
+
+.list-img-preview ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+    .list-img-preview ul li {
+        display: inline-block;
+    }
+
+.img-preview {
+    width: 100px;
+    position: relative;
+}
+
+    .img-preview i {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+    }
+
+.comment-action a {
+    text-decoration: none;
+}
+
+.comment-action .comment-date {
+    color: #989898;
+}
+
+    .comment-action .comment-date::before {
+        content: "-";
+        margin: 0px 10px 0px 10px;
+    }
+
+.list-comment-user {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .list-comment-user li {
+        margin-bottom: 15px;
+    }
+
+.checkout {
+    padding-top: 65px;
+}
+
+    .checkout .img-product {
+        width: 150px;
+    }
+
+.quantity {
+    width: 30px;
+    outline: none;
+}
+
+.btn-change-qty {
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border: 1px solid #28a745;
+    background-color: white;
+}
+
+.action-cart a {
+    text-decoration: none;
+    color: red;
+}
+
+.your-cart a {
+    text-decoration: none;
+}
+
+.nav-item a {
+    text-transform: none;
+}
+
+.your-account a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.your-account i {
+    color: #878087;
+    padding-right: 15px;
+}
+
+.your-account .navbar {
+    padding: 1rem;
+}
+
+.your-account .nav-item {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.btn-add-bookAddress {
+    border: 2px dotted;
+    width: 100%;
+}
+
+.address-default p {
+    margin: 0;
+}
+
+.action-address a {
+    color: #007bff;
+    display: inline-block;
+}
+
+.address-info .customer-name {
+    font-weight: bold;
+}
+
+.address-info span {
+    color: rgb(120, 120, 120);
+}
+
+.btn, .card, .form-control, .badge {
+    border-radius: 0;
+}

@@ -1,0 +1,245 @@
+﻿@model GDStore.ViewModel.Products.ProductVm
+@{
+    ViewData["Title"] = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumb-rg">
+    <div class="container p-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<section class="product-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-default p-4">
+                    <img src="@TempData["BackendUrl"]/user-content/@Model.ThumbnailImage.First().Url" class="w-100 img-default-product" alt="">
+                </div>
+                <div class="list-img d-flex justify-content-center">
+
+                    <div class="img-item">
+                        <img src="@TempData["BackendUrl"]/user-content/@Model.ThumbnailImage.First().Url" alt="" class="is-clicked">
+                    </div>
+                    @foreach (var item in Model.ThumbnailImage.Skip(1))
+                    {
+                        <div class="img-item">
+                            <img src="@TempData["BackendUrl"]/user-content/@item.Url" alt="">
+                        </div>
+                    }
+                    @*
+                        <div class="img-item">
+                            <img src="~/img/product/male/product-2_3.webp" alt="">
+                        </div>
+                        <div class="img-item">
+                            <img src="~/img/product/male/product-2_4.jpg" alt="">
+                        </div>*@
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-product pt-4">
+                    <h1 class="product-name">@Model.Name</h1>
+                    <div class="rg-price">
+                        <span class="price"><strong>@Model.Price</strong></span>
+                        <del class="original-price ml-4">@Model.OriginalPrice</del>
+                        <label class="badge badge-warning ml-4">-50%</label>
+                    </div>
+                    <div class="rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <hr>
+                    <div class="list-size">
+                        <label class="mr-3">Kích thước:</label>
+                        <span class="size-item">37</span>
+                        <span class="size-item">38</span>
+                        <span class="size-item">39</span>
+                        <span class="size-item">40</span>
+                        <span class="size-item">41</span>
+                        <span class="size-item">42</span>
+                    </div>
+                    <div class="product-status">
+                        <label class="mr-3 mt-2">Tình trạng:</label>
+                        <span><strong>30</strong> Sản phẩm</span>
+                    </div>
+                    <div class="gift">
+                        <label>Quà tặng :</label>
+                        <div class="img-gift text-center" style="width: 100px">
+                            <a href="#"><img class="w-100" src="~/img/gift/gift-1.webp" alt=""></a>
+                        </div>
+                        <p class="gift-name">Bình giữ nhiệt Elmich</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-buy" data-id="@Model.Id">Mua ngay</a>
+                    <a href="#" class="btn btn-addToCart ml-2">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="products products-related">
+    <div class="container">
+        <div class="title">Sản phẩm gợi ý</div>
+        <div class="row mt-2">
+            <div class="col-md-3 col-3">
+                <div class="product">
+                    <label class="badge badge-warning">-50%</label><br>
+                    <label class="badge badge-danger">Khuyến mãi</label>
+                    <a href="detail.html">
+                        <img class="thumbnail-img" src="~/img/product/female/product-1.webp" alt="">
+                    </a>
+                    <hr>
+                    <h1 class="product-name"><a href="detail.html">Tên sản phẩm</a></h1>
+                    <div>
+                        <span class="price"><strong>790.000₫</strong></span>
+                        <del class="original-price float-right">990.000₫</del>
+                    </div>
+                    <button class="btn btn-success btn-addToCart w-100 mt-3">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="product">
+                    <label class="badge badge-warning">-50%</label><br>
+                    <label class="badge badge-danger">Khuyến mãi</label>
+                    <a href="detail.html">
+                        <img class="thumbnail-img" src="~/img/product/female/product-2.webp" alt="">
+                    </a>
+                    <hr>
+                    <h1 class="product-name"><a href="detail.html">Tên sản phẩm</a></h1>
+                    <div>
+                        <span class="price"><strong>790.000₫</strong></span>
+                        <del class="original-price float-right">990.000₫</del>
+                    </div>
+                    <button class="btn btn-success btn-addToCart w-100 mt-3">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="product">
+                    <label class="badge badge-warning">-50%</label><br>
+                    <label class="badge badge-danger">Khuyến mãi</label>
+                    <a href="detail.html">
+                        <img class="thumbnail-img" src="~/img/product/female/product-3.webp" alt="">
+                    </a>
+                    <hr>
+                    <h1 class="product-name"><a href="detail.html">Tên sản phẩm</a></h1>
+                    <div>
+                        <span class="price"><strong>790.000₫</strong></span>
+                        <del class="original-price float-right">990.000₫</del>
+                    </div>
+                    <button class="btn btn-success btn-addToCart w-100 mt-3">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-3">
+                <div class="product">
+                    <label class="badge badge-warning">-50%</label><br>
+                    <label class="badge badge-danger">Khuyến mãi</label>
+                    <a href="detail.html">
+                        <img class="thumbnail-img" src="~/img/product/female/product-4.webp" alt="">
+                    </a>
+                    <hr>
+                    <h1 class="product-name"><a href="detail.html">Tên sản phẩm</a></h1>
+                    <div>
+                        <span class="price"><strong>790.000₫</strong></span>
+                        <del class="original-price float-right">990.000₫</del>
+                    </div>
+                    <button class="btn btn-success btn-addToCart w-100 mt-3">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="" class="btn-see-more">Xem thêm</a>
+        </div>
+    </div>
+</section>
+<section class="comment">
+    <div class="container">
+        <div class="title">Đánh giá/Nhận xét</div>
+        <div class="row">
+            <div class="col-md-8">
+                <form action="#" method="POST">
+                    <div class="card">
+                        <div class="card-body pb-0 pt-1 pl-1 pr-1">
+                            <textarea class="comment-box w-100 p-2" rows="3"
+                                      placeholder="Để lại nhận xét"></textarea>
+                        </div>
+                        <div class="card-footer pt-2 pb-2 pl-3">
+                            <label for="chooseImg" class="btn-ChooseImg mt-2"><i class="fas fa-camera"></i> Gửi ảnh</label>
+                            <input type="file" id="chooseImg" style="display: none;">
+                            <button class="btn btn-primary btn-send-comment float-right">Gửi</button>
+                        </div>
+                    </div>
+                    <div class="list-img-preview">
+                        <ul>
+                            <li class="img-preview mt-2">
+                                <i class="fas fa-times deleteImg"></i>
+                                <img src="~/img/product/male/product-2.webp" class="w-100" alt="">
+                            </li>
+                            <li class="img-preview mt-2">
+                                <i class="fas fa-times deleteImg"></i>
+                                <img src="~/img/product/male/product-2.webp" class="w-100" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+                <hr>
+            </div>
+        </div>
+        <ul class="list-comment-user">
+            <li class="comment-item">
+                <div class="comment-user">
+                    <div class="user mb-2">
+                        <img src="~/img/user/AvatarDefault-Male.png" alt="" style="width: 30px;">
+                        <span class="ml-2"><strong>Hiếu XT</strong></span>
+                    </div>
+                    <div class="comment-content">
+                        <p class="mb-0">Sản phẩm đẹp</p>
+                    </div>
+                    <div class="comment-action">
+                        <a href="javascript:void(0)" class="respondent">Trả lời</a>
+                        <a href="javascript:void(0)" class="comment-date">1 tuần</a>
+                    </div>
+                </div>
+            </li>
+            <li class="comment-item">
+                <div class="comment-user">
+                    <div class="user mb-2">
+                        <img src="~/img/user/AvatarDefault-Female.png" alt="" style="width: 30px;">
+                        <span class="ml-2"><strong>Bảo Trâm</strong></span>
+                    </div>
+                    <div class="comment-content">
+                        <p class="mb-0">Giao hàng nhanh, giá cả phù hợp, đánh giá 5 sao</p>
+                    </div>
+                    <div class="comment-action">
+                        <a href="javascript:void(0)" class="respondent">Trả lời</a>
+                        <a href="javascript:void(0)" class="comment-date">1 tuần</a>
+                    </div>
+                </div>
+            </li>
+            <li class="comment-item">
+                <div class="comment-user">
+                    <div class="user mb-2">
+                        <img src="~/img/user/AvatarDefault-Female.png" alt="" style="width: 30px;">
+                        <span class="ml-2"><strong>Hà An</strong></span>
+                    </div>
+                    <div class="comment-content">
+                        <p class="mb-0">Thật tuyệt vời khi một sản phẩm thương hiệu việt lại tốt như vậy</p>
+                    </div>
+                    <div class="comment-action">
+                        <a href="javascript:void(0)" class="respondent">Trả lời</a>
+                        <a href="javascript:void(0)" class="comment-date">1 tuần</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

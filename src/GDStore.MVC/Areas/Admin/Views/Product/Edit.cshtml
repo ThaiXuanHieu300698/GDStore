@@ -1,0 +1,129 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model GDStore.ViewModel.Products.ProductUpdateRequest
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+            swal("@Html.Raw(TempData["message"].ToString())", "", "success");
+    </script>
+}
+<h1 class="title-content">Chỉnh sửa sản phẩm</h1>
+<div class="mt-5">
+    <form asp-action="EditHandle" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Tên sản phẩm</label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="">Mô tả</label>
+            <input type="text" asp-for="Description" class="form-control">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Giá gốc</label>
+                    <input type="number" asp-for="OriginalPrice" class="form-control">
+                    <span asp-validation-for="OriginalPrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Giá giao dịch</label>
+                    <input type="number" asp-for="Price" class="form-control">
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Nhãn hiệu</label>
+                    <select name="BrandId" id="" asp-items="@ViewBag.Brands" class="form-control">
+                        <option>--Chọn nhãn hiệu--</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Danh mục</label>
+                    <select name="CategoryIds" id="" asp-items="@ViewBag.Categories" class="form-control">
+                        <option>--Chọn danh mục</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Ảnh sản phẩm
+                    </div>
+                    <div class="card-body">
+                        <label for="ChooseImg" class="icon-chooseImg">
+                            <i class="fas fa-plus-circle fa-3x" aria-hidden="true"></i> Thêm
+                            ảnh
+                        </label>
+                        <input type="file" name="files" id="ChooseImg" class="d-none" multiple>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="rg-previewImg d-flex">
+                    <!-- <div class="wrapperImg">
+                        <img class="img-product" src="/img/product/female/product-1.webp" alt="">
+                    </div>
+                     -->
+                    @foreach (var item in TempData["ProductImage"] as List<GDStore.Domain.Entities.ProductImage>)
+                    {
+                        <div class="wrapperImg text-center">
+                            <img class="img-product" src="@TempData["BackendUrl"]/user-content/@item.Url" alt="">
+                            <i class='fas fa-trash-alt text-danger btn-deleteImg' onclick="deleteImg(this)"></i>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Ghi lại</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#ChooseImg").on("change", function () {
+            show(this);
+        });
+
+        function show(input) {
+            const rgPreviewImg = $(".rg-previewImg")
+            if (input.files && input.files[0]) {
+                const imgs = input.files.length;
+                for (let i = 0; i < imgs; i++) {
+                    var filerdr = new FileReader();
+                    filerdr.onload = function (e) {
+                        rgPreviewImg.append("<div class='wrapperImg text-center'>" +
+                            "<img class='img-product' src='" + e.target.result + "' alt=''>" +
+                            "<i class='fas fa-trash-alt text-danger btn-deleteImg' onclick='deleteImg(this)'></i>"
+                            + "</div>")
+                    }
+                    filerdr.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+
+        function deleteImg(i) {
+            $(i).parent().remove();
+        }
+
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+}

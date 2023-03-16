@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:100,300,400,500,700|Volkhov:400i">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="~/vendor/SweetAlert/css/sweetalert.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="~/admin/css/style.css">
+</head>
+
+<body>
+    <app>
+        <div class="sidebar">
+            <div class="top-row pl-4 navbar navbar-dark">
+                <a class="navbar-brand" href="/Admin/Home/Index">GDStore</a>
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div id="collapse" class="collapse">
+                <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Khách hàng</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link" data-target="#product-menu" data-toggle="collapse">
+                            <i class="fas fa-box-open"></i>
+                            <span>Sản phẩm</span>
+                            <i class="fas fa-caret-down ml-5 pl-4"></i>
+                        </a>
+                    </li>
+                    <div id="product-menu" class="collapse">
+                        <ul>
+                            <li class="nav-item px-3">
+                                <a asp-action="List" asp-controller="Product" asp-area="Admin" class="nav-link">
+                                    <span>Danh sách sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a href="#" class="nav-link">
+                                    <span>Quản lý kho</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <li class="nav-item px-3">
+                        <a asp-action="List" asp-controller="Category" asp-area="Admin" class="nav-link">
+                            <i class="fas fa-table"></i>
+                            <span>Danh mục</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-copyright"></i>
+                            <span>Nhãn hiệu</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link" data-target="#orders-menu" data-toggle="collapse">
+                            <i class="fas fa-clipboard"></i>
+                            <span>Đơn hàng</span>
+                            <i class="fas fa-caret-down ml-5 pl-4"></i>
+                        </a>
+                    </li>
+                    <div id="orders-menu" class="collapse">
+                        <ul>
+                            <li class="nav-item px-3">
+                                <a href="#" class="nav-link">
+                                    <span>Danh sách đơn hàng</span>
+                                </a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a href="#" class="nav-link">
+                                    <span>Đơn hàng nhập</span>
+                                </a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a href="#" class="nav-link">
+                                    <span>Phiếu giao hàng</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Thống kê</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-gift"></i>
+                            <span>Khuyến mãi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a href="#" class="nav-link" data-target="#system-menu" data-toggle="collapse">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Hệ thống</span>
+                            <i class="fas fa-caret-down ml-5 pl-4"></i>
+                        </a>
+                    </li>
+                    <div id="system-menu" class="collapse">
+                        <ul>
+                            <li class="nav-item px-3">
+                                <a href="/Admin/User/List" class="nav-link">
+                                    <span>Người dùng</span>
+                                </a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a href="#" class="nav-link">
+                                    <span>Vai trò</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <li class="nav-item px-3">
+                        <a href="setting.html" class="nav-link">
+                            <i class="fas fa-cog"></i>
+                            <span>Cài đặt</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="top-row px-4">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle text-decoration-none" data-toggle="dropdown">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" style="z-index: 100; position: absolute;">
+                        <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/Account/Logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content px-4">
+                @RenderBody()
+            </div>
+        </div>
+    </app>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/vendor/SweetAlert/js/sweetalert.js"></script>
+    <script src="~/admin/js/app.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
