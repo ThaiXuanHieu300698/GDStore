@@ -46,8 +46,8 @@
                 <div class="info-product pt-4">
                     <h1 class="product-name">@Model.Name</h1>
                     <div class="rg-price">
-                        <span class="price"><strong>@Model.Price</strong></span>
-                        <del class="original-price ml-4">@Model.OriginalPrice</del>
+                        <span class="price"><strong>@String.Format("{0:#,0.#########}", Model.Price)₫</strong></span>
+                        <del class="original-price ml-4">@String.Format("{0:#,0.#########}", Model.OriginalPrice)₫</del>
                         <label class="badge badge-warning ml-4">-50%</label>
                     </div>
                     <div class="rate">

@@ -51,7 +51,7 @@
                     <td><input type="checkbox" name="" id=""></td>
                     <td><img src="@TempData["BackendUrl"]/user-content/@item.ThumbnailImage.First().Url" style="width:50px" /></td>
                     <td>@item.Name</td>
-                    <td>@item.Price</td>
+                    <td>@String.Format("{0:#,0.#########}", item.Price)</td>
                     <td>
                         <a asp-action="Edit" asp-controller="Product" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                         <a asp-action="Delete" asp-controller="Product" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>

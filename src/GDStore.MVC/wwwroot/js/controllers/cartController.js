@@ -23,8 +23,8 @@
                         + "</div>"
                         + "</div>"
                         + "<div class='cart-item-price'>"
-                        + "<p><strong>" + item.price + "₫</strong></p>"
-                        + "<p><del>" + item.originalPrice + "₫</del> <label class='badge badge-warning'>-50%</label></p>"
+                        + "<p><strong>" + formatCurrency(item.price) + "</strong></p>"
+                        + "<p><del>" + formatCurrency(item.originalPrice) + "</del> <label class='badge badge-warning'>-50%</label></p>"
                         + "</div>"
                         + "<div class='action-quantity'>"
                     if (item.quantity == 1) {
@@ -43,7 +43,7 @@
                     total += amount;
                 });
                 $('.list-cart').html(html);
-                $('.total').text("Tổng tiền: " + total + "₫");
+                $('.total').text("Tổng tiền: " + formatCurrency(total));
                 $('#frm-info-order').show();
                 if (res.length === 0) {
                     $('.list-cart').append("<div class='empty-cart text-center text-danger'>Giỏ hàng trống</div>");

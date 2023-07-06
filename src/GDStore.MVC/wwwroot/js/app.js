@@ -210,3 +210,14 @@ function getWards(districtId) {
         $('#ddlWards').html(html);
     });
 }
+
+function formatCurrency(number) {
+    const amount = String(number);
+
+    const formatter = new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    });
+
+    return formatter.format(amount);
+}

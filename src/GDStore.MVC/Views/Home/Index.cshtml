@@ -55,8 +55,8 @@
                             <hr>
                             <h1 class="product-name"><a href="/san-pham/@StringHelper.VNDecode(item.Name)-@item.Id">@item.Name</a></h1>
                             <div>
-                                <span class="price"><strong>@item.Price₫</strong></span>
-                                <del class="original-price float-right">@item.OriginalPrice₫</del>
+                                <span class="price"><strong>@String.Format("{0:#,0.#########}", item.Price)₫</strong></span>
+                                <del class="original-price float-right">@String.Format("{0:#,0.#########}", item.OriginalPrice)₫</del>
                             </div>
                             <button class="btn btn-success btn-addToCart w-100 mt-3" data-id="@item.Id">Thêm vào giỏ hàng</button>
                         </div>
